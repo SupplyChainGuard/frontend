@@ -4,7 +4,7 @@ function Navbar() {
   const navigate = useNavigate();
 
   const routes = [
-    { name: "Inventory", path: "/auth/inventory" },
+    { name: "Inventory", path: "/auth" },
     { name: "Providers", path: "/auth/providers" },
     { name: "Shipments", path: "/auth/shipments" },
     { name: "Orders", path: "/auth/orders" },
@@ -13,10 +13,10 @@ function Navbar() {
   ];
 
   return (
-    <nav className="bg-red-200">
+    <nav className="h-16 flex content-center flex-wrap">
       <ul className="flex">
         {routes.map((route) => (
-          <NavLink className="ml-4" to={route.path} key={route.name}>
+          <NavLink className="ml-4 text-base p-2 font-bold text-[#64748B] nav-link" to={route.path} key={route.name} end>
             {route.name}
           </NavLink>
         ))}

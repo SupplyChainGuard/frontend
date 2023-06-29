@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.free-link.active,
+.auth-link.active {
+  background-color: rgba(189, 189, 189, 0.466);
+  border-radius: 5px;
+}
+
+.nav-link.active {
+  border-bottom: 2px solid #3B82F6;
+  color: #3B82F6;
+}
