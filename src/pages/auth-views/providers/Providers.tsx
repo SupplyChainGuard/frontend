@@ -1,5 +1,5 @@
 import AddButton from "../shared/components/AddButton";
-import TableProvider from "../shared/components/TableProvider";
+import Table from "../shared/components/Table";
 
 function Providers() {
   return (
@@ -8,7 +8,7 @@ function Providers() {
         <AddButton title="Add Provider" />
       </header>
       <main>
-        <TableProvider />
+        <Table />
       </main>
     </div>
   );
