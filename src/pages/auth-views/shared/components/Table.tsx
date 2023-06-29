@@ -1,30 +1,42 @@
-function Table() {
-  const data = [
-    { id: 1, name: "Item 1", category: "Category A", status: "Active" },
-    { id: 2, name: "Item 2", category: "Category B", status: "Inactive" },
-    { id: 3, name: "Item 3", category: "Category C", status: "Active" },
-  ];
+interface Item {
+  id: number;
+  values: String[];
+}
 
+interface TableProps {
+  headers: string[];
+  data: Item[];
+  action: () => void;
+}
+
+function Table(props: TableProps) {
   return (
     <table className="w-full bg-gray-200">
       <thead>
         <tr className="bg-gray-400">
-          <th className="p-2">ID</th>
-          <th className="p-2">Name</th>
-          <th className="p-2">Category</th>
-          <th className="p-2">Status</th>
-          <th className="p-2">Actions</th>
+          {props.headers.map((header) => (
+            <th key={header} className="p-2">
+              {header}
+            </th>
+          ))}
         </tr>
       </thead>
       <tbody>
-        {data.map((item) => (
+        {props.data.map((item) => (
           <tr key={item.id} className="bg-white">
-            <td className="p-2 text-center">{item.id}</td>
-            <td className="p-2 text-center">{item.name}</td>
-            <td className="p-2 text-center">{item.category}</td>
-            <td className="p-2 text-center">{item.status}</td>
+            {item.values.map((value) => (
+              <td key={"value-" + item.id + value} className="p-2 text-center">
+                {value}
+              </td>
+            ))}
             <td className="p-2 text-center">
-              <span className="text-blue-500">🛠️</span>
+              <button
+                key={"action-" + item.id}
+                className="text-blue-500"
+                onClick={props.action}
+              >
+                🛠️
+              </button>
             </td>
           </tr>
         ))}
