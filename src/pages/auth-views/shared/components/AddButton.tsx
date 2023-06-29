@@ -3,7 +3,7 @@ interface AddButtonProps {
 }
 
 function AddButton({ title }: AddButtonProps) {
-  return <div>{title}</div>;
+  return <div className="p-4 bg-gray-600 text-white rounded-lg">{title} +</div>;
 }
 
 export default AddButton;
