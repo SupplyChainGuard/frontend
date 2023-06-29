@@ -1,7 +1,8 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import useNavbarToggle from "../hooks/useNavbarToggle";
 
 function Navbar() {
-  const navigate = useNavigate();
+  const { toggleNavbar } = useNavbarToggle();
 
   const routes = [
     { name: "Inventory", path: "/auth" },
@@ -12,11 +13,15 @@ function Navbar() {
     { name: "Order tracking", path: "/auth/order-tracking" },
   ];
 
+  const handleNavlinkClick = () => {
+    toggleNavbar();
+  };
+
   return (
-    <nav className="h-16 flex content-center flex-wrap">
-      <ul className="flex">
+    <nav className="absolute lg:static lg:h-16 bg-gray-200 lg:bg-white flex lg:content-center flex-wrap w-full lg:w-fit h-full left-[-100%] transition-all lg:transition-none ease-in duration-500 menu-nav">
+      <ul className="flex flex-col lg:flex-row w-full p-4 lg:p-0">
         {routes.map((route) => (
-          <NavLink className="ml-4 text-base p-2 font-bold text-[#64748B] nav-link" to={route.path} key={route.name} end>
+          <NavLink className="lg:ml-4 text-base p-2 font-bold text-[#64748B] nav-link" to={route.path} key={route.name} end onClick={handleNavlinkClick}>
             {route.name}
           </NavLink>
         ))}

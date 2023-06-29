@@ -6,8 +6,8 @@ function AuthViews() {
   return (
     <div className="flex flex-col h-screen">
       <Header />
-      <Navbar />
       <div className="flex flex-col w-full h-full">
+        <Navbar />
         <Outlet />
       </div>
     </div>
