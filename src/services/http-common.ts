@@ -7,7 +7,7 @@ const instance = axios.create({
       : "https://supply-guard-chain-backend.azurewebsites.net",
   headers: {
     "Content-type": "application/json",
-    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Origin": "http://localhost:5173",
     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
   }
 });

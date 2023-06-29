@@ -14,12 +14,12 @@ class AuthService {
     return http.post(this.BASE_URL, { id: getRandomId, ...data });
   }
 
-  public update(id: number, data: UpdateUser) {
-    return http.put(`${this.BASE_URL}/${id}`, data);
+  public update(data: UpdateUser) {
+    return http.put(this.BASE_URL, data);
   }
 
-  public delete(id: number) {
-    return http.delete(`${this.BASE_URL}/${id}`);
+  public delete() {
+    return http.delete(this.BASE_URL);
   }
 }
 
