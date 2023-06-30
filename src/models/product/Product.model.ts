@@ -1,6 +1,7 @@
 export default interface Product {
-  sku: number;
-  name: String;
+  id: number;
+  name: string;
   stock: number;
+  category: string;
   status: number;
 }
