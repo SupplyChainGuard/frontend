@@ -15,6 +15,7 @@ import OrderTracking from "./pages/auth-views/order-tracking/OrderTracking";
 import NewShipment from "./pages/auth-views/shipments/pages/NewShipment";
 import NewProvider from "./pages/auth-views/providers/pages/NewProvider";
 import UpdateProduct from "./pages/auth-views/inventory/pages/UpdateProductForm";
+import NewOrders from "./pages/auth-views/orders/pages/NewOrders";
 
 function App() {
   return (
@@ -40,7 +41,10 @@ function App() {
             <Route index element={<Shipments />} />
             <Route path="new" element={<NewShipment />} />
           </Route>
-          <Route path="orders" element={<Orders />} />
+          <Route path="orders/*">
+            <Route index element={<Orders />} />
+            <Route path="new" element={<NewOrders />} />
+          </Route>
           <Route path="shipment-tracking" element={<ShipmentTracking />} />
           <Route path="order-tracking" element={<OrderTracking />} />
           <Route path="profile" element={<Profile />} />
