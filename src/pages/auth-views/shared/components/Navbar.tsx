@@ -10,8 +10,8 @@ function Navbar() {
     { name: "Providers", path: "/auth/providers" },
     { name: "Shipments", path: "/auth/shipments" },
     { name: "Orders", path: "/auth/orders" },
-    { name: "Shipment tracking", path: "/auth/shipment-tracking" },
-    { name: "Order tracking", path: "/auth/order-tracking" },
+    // { name: "Shipment tracking", path: "/auth/shipment-tracking" },
+    // { name: "Order tracking", path: "/auth/order-tracking" },
   ];
 
   const handleNavlinkClick = () => {
