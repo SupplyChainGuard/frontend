@@ -8,7 +8,7 @@ interface Item {
 interface TableProps {
   headers: string[];
   data: Item[];
-  action: () => void;
+  action: (id: number) => void;
 }
 
 function Table(props: TableProps) {
@@ -35,7 +35,7 @@ function Table(props: TableProps) {
               <button
                 key={getRandomId()}
                 className="text-blue-500"
-                onClick={props.action}
+                onClick={() => props.action(item.id)}
               >
                 🛠️
               </button>

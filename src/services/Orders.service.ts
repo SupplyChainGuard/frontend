@@ -19,11 +19,11 @@ class OrdersService {
   }
 
   public update(id: number, data: UpdateOrder) {
-    return http.post(`${this.BASE_URL}/${id}}`, data);
+    return http.put(`${this.BASE_URL}/${id}`, data);
   }
 
   public delete(id: number) {
-    return http.post(`${this.BASE_URL}/${id}}`);
+    return http.delete(`${this.BASE_URL}/${id}`);
   }
 }
 

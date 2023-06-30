@@ -1,11 +1,13 @@
 import { useState } from "react";
 import Table from "../shared/components/Table";
 import useGetProducts from "./hooks/useGetProducts";
+import { useNavigate } from "react-router";
 
 function Inventory() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { products, loadingGetProducts, errorGetProducts, getProducts } =
     useGetProducts();
+  const navigate = useNavigate();
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -31,7 +33,9 @@ function Inventory() {
           product.status.toString(),
         ],
       })) || [],
-    action: () => {},
+    action: (id: number) => {
+      navigate(`/auth/inventory/${id}/update`);
+    },
   };
 
   return (
