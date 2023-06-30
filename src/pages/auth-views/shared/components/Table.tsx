@@ -1,3 +1,5 @@
+import getRandomId from "../../../../utils/IdGenerator";
+
 interface Item {
   id: number;
   values: String[];
@@ -15,7 +17,7 @@ function Table(props: TableProps) {
       <thead>
         <tr className="bg-gray-300">
           {props.headers.map((header) => (
-            <th key={header} className="p-2">
+            <th key={getRandomId()} className="p-2">
               {header}
             </th>
           ))}
@@ -23,15 +25,15 @@ function Table(props: TableProps) {
       </thead>
       <tbody>
         {props.data.map((item) => (
-          <tr key={item.id} className="bg-white">
+          <tr key={getRandomId()} className="bg-white">
             {item.values.map((value) => (
-              <td key={"value-" + item.id + value} className="p-2 text-center">
+              <td key={getRandomId()} className="p-2 text-center">
                 {value}
               </td>
             ))}
             <td className="p-2 text-center">
               <button
-                key={"action-" + item.id}
+                key={getRandomId()}
                 className="text-blue-500"
                 onClick={props.action}
               >
