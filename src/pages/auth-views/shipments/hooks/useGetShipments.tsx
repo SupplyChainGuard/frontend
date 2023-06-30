@@ -15,7 +15,12 @@ function useFetchShipments() {
     setLoadingGetShipments(true);
     await ShipmentService.getAll()
       .then((response) => {
-        const shipments = response.data;
+        const shipments = response.data.map((shipment: { date: string }) => {
+          return {
+            ...shipment,
+            date: new Date(+shipment.date).toLocaleString(),
+          };
+        });
         setShipments(shipments);
       })
       .catch((error) => {
