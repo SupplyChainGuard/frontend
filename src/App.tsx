@@ -17,7 +17,7 @@ import NewProvider from "./pages/auth-views/providers/pages/NewProvider";
 import UpdateProduct from "./pages/auth-views/inventory/pages/UpdateProductForm";
 import NewOrders from "./pages/auth-views/orders/pages/NewOrders";
 import NewProduct from "./pages/auth-views/inventory/pages/NewProductForm";
-
+import UpdateProvider from "./pages/auth-views/providers/pages/UpdateProviderForm";
 
 function App() {
   return (
@@ -39,6 +39,7 @@ function App() {
           <Route path="providers/*">
             <Route index element={<Providers />} />
             <Route path="new" element={<NewProvider />} />
+            <Route path=":id/update" element={<UpdateProvider />} />
           </Route>
           <Route path="shipments/*">
             <Route index element={<Shipments />} />
