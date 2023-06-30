@@ -7,10 +7,6 @@ function Providers() {
   const navigate = useNavigate();
   const { providers } = useFetchProviders();
 
-  const dataAction = () => {
-    console.log("hola action");
-  };
-
   const tableProps = {
     headers: ["ID", "Name", "Category", "Status", "Action"],
     data: providers?.map((provider) => ({
@@ -22,6 +18,9 @@ function Providers() {
         provider.status.toString(),
       ],
     })) || [],
+    action: (id: number) => {
+      navigate(`/auth/providers/${id}/update`);
+    },
   }
 
   return (
@@ -30,9 +29,10 @@ function Providers() {
       <AddButton action={() => { navigate("/auth/providers/new") }} title="Add Provider" />
       </header>
       <main className="flex justify-center mx-4">
-        <Table headers={tableProps.headers} data={tableProps.data} action={dataAction} />
+        <Table headers={tableProps.headers} data={tableProps.data} action={tableProps.action} />
       </main>
     </div>
+
   );
 }
 
