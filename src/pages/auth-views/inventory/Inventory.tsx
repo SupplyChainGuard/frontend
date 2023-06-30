@@ -24,11 +24,11 @@ function Inventory() {
       products?.map((product) => ({
         id: product.id,
         values: [
-          product.id,
-          product.name,
-          product.stock,
-          product.category,
-          product.status,
+          product.id.toString(),
+          product.name.toString(),
+          product.stock.toString(),
+          product.category.toString(),
+          product.status.toString(),
         ],
       })) || [],
     action: () => {},
