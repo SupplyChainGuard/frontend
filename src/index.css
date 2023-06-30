@@ -26,3 +26,29 @@
   border-bottom: 2px solid #3B82F6;
   color: #3B82F6;
 }
+
+.fondo-con-texto {
+  background-image: url("../public/Fondo.png");
+  background-size: cover;
+  background-position: center;
+  height: 500px; /* Ajusta la altura según tus necesidades */
+  position: relative;
+}
+
+.contenido {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--text-color);
+}
+
+.contenido h1 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.contenido p {
+  font-size: 18px;
+}
