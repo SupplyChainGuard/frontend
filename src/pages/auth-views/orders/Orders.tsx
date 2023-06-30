@@ -1,28 +1,18 @@
-import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
+import AddButton from "../shared/components/AddButton";
 import Table from "../shared/components/Table";
 import useFetchOrders from "./hooks/useGetOrders";
 
 function Orders() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  //get all orders with useGetOrders hook
-  const { orders, loadingGetOrders, errorGetOrders, fetchOrders } =
-    useFetchOrders();
-
-  const openModal = () => {
-    setIsModalOpen(true);
+  const navigate = useNavigate();
+  const { orders } = useFetchOrders();
+  const dataAction = () => {
+    console.log("hola action");
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-  const handleSaveOrder = () => {
-    // Aquí puedes agregar la lógica para guardar la orden
-    console.log("Orden guardada");
-    closeModal();
-  };
 
   const tableProp = {
-    headers: ["ID", "Provider", "Product SKU", "Amount", "Date", "Action"],
+    headers: ["ID", "Provider ID", "Product SKU", "Amount", "Date", "Action"],
     //set data props with orders data but first convert it to Item type with map function and empty array if error
     data:
       orders?.map((order) => ({
@@ -39,55 +29,11 @@ function Orders() {
   };
 
   return (
-    <>
-      <div>
-        <div className="flex justify-end mx-20">
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            type="submit"
-            onClick={openModal}
-          >
-            New Order
-          </button>
-        </div>
-        {isModalOpen && (
-          <div className="modal">
-            <div className="fixed inset-0 flex items-center justify-center z-10">
-              <div className="absolute inset-0 bg-gray-900 opacity-50"></div>
-              <div className="bg-white rounded-lg p-10 z-20 h-max w-1/2">
-                <h2 className="text-xl font-bold mb-4">New Order</h2>
-                <div className="mb-4 flex flex-col">
-                  <label className="font-bold">Provider</label>
-                  <input type="text" className="border border-gray-300 p-2" />
-                </div>
-                <div className="mb-4 flex flex-col">
-                  <label className="font-bold">Product</label>
-                  <input type="text" className="border border-gray-300 p-2" />
-                </div>
-                <div className="mb-4 flex flex-col">
-                  <label className="font-bold">Amount</label>
-                  <input type="text" className="border border-gray-300 p-2" />
-                </div>
-                <div className="flex justify-end space-x-4">
-                  <button
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                    type="submit"
-                    onClick={closeModal}
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                    type="submit"
-                    onClick={handleSaveOrder}
-                  >
-                    Save
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+     <>
+        <div>
+          <header className="my-2 mx-6 flex justify-end">
+            <AddButton action={() => { navigate("/auth/orders/new") }} title="Add Order" />
+          </header>
         <main className="flex justify-center mx-4">
           <Table
             headers={tableProp.headers}
@@ -95,7 +41,7 @@ function Orders() {
             action={tableProp.action}
           />
         </main>
-      </div>
+        </div>
     </>
   );
 }
