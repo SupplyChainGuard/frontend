@@ -5,7 +5,8 @@ import Provider from "../../../../models/provider/Provider.model";
 function useFetchProviders() {
     //write fetchProviders function here
     const [providers, setProviders] = useState<Provider[] | null>(null);
-    const [loadingGetProviders, setLoadingGetProviders] = useState<boolean>(false);
+    const [loadingGetProviders, setLoadingGetProviders] = 
+      useState<boolean>(false);
     const [errorGetProviders, setErrorGetProviders] = useState<string | null>(null);
   
     const fetchProviders = async () => {

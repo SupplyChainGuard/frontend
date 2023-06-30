@@ -13,6 +13,7 @@ import Shipments from "./pages/auth-views/shipments/Shipments";
 import ShipmentTracking from "./pages/auth-views/shipment-tracking/ShipmentTracking";
 import OrderTracking from "./pages/auth-views/order-tracking/OrderTracking";
 import NewShipment from "./pages/auth-views/shipments/pages/NewShipment";
+import NewProvider from "./pages/auth-views/providers/pages/NewProvider";
 
 function App() {
   return (
@@ -27,7 +28,10 @@ function App() {
         <Route path="auth/*" element={<AuthViews />} errorElement={<NotFoundPage />}>
           <Route index element={<Inventory />} />
           <Route path="inventory" element={<Inventory />} />
-          <Route path="providers" element={<Providers />} />
+          <Route path="providers/*">
+            <Route index element={<Providers />} />
+            <Route path="new" element={<NewProvider />} />
+          </Route>
           <Route path="shipments/*">
             <Route index element={<Shipments />} />
             <Route path="new" element={<NewShipment />} />

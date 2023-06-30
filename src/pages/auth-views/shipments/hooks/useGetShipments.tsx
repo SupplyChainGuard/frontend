@@ -7,9 +7,7 @@ function useFetchShipments() {
   const [shipments, setShipments] = useState<Shipment[] | null>(null);
   const [loadingGetShipments, setLoadingGetShipments] =
     useState<boolean>(false);
-  const [errorGetShipments, setErrorGetShipments] = useState<string | null>(
-    null
-  );
+  const [errorGetShipments, setErrorGetShipments] = useState<string | null>(null);
 
   const fetchShipments = async () => {
     setLoadingGetShipments(true);
