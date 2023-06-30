@@ -7,10 +7,6 @@ function Shipments() {
   const navigate = useNavigate();
   const { shipments } = useFetchShipments();
 
-  const dataAction = () => {
-    console.log("hola action");
-  };
-
   const tableProps = {
     headers: ["ID", "Product (SKU)", "Quantity", "Date", "Action"],
     data: shipments?.map((shipment) => ({
@@ -22,6 +18,7 @@ function Shipments() {
         shipment.date.toString(),
       ],
     })) || [],
+    action: () => {},
   }
 
   return (
@@ -30,7 +27,7 @@ function Shipments() {
         <AddButton action={() => { navigate("/auth/shipments/new") }} title="Add Shipment" />
       </header>
       <main className="flex justify-center mx-4">
-        <Table headers={tableProps.headers} data={tableProps.data} action={dataAction} />
+        <Table headers={tableProps.headers} data={tableProps.data} action={tableProps.action} />
       </main>
     </div>
   );

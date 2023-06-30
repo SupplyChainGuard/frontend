@@ -6,10 +6,6 @@ import useFetchOrders from "./hooks/useGetOrders";
 function Orders() {
   const navigate = useNavigate();
   const { orders } = useFetchOrders();
-  const dataAction = () => {
-    console.log("hola action");
-  };
-
 
   const tableProp = {
     headers: ["ID", "Provider ID", "Product SKU", "Amount", "Date", "Action"],

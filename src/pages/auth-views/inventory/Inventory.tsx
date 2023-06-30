@@ -1,15 +1,11 @@
 import Table from "../shared/components/Table";
-import {useNavigate} from "react-router";
+import { useNavigate } from "react-router";
 import useFetchProducts from "../inventory/hooks/useGetProducts";
 import AddButton from "../shared/components/AddButton";
 
 function Inventory() {
   const navigate = useNavigate();
   const { products } = useFetchProducts();
-
-  const dataAction = () => {
-    console.log("hola action");
-  };
 
   const tableProps = {
     headers: ["SKU", "Name", "Stock", "Category", "Status", "Action"],
@@ -24,16 +20,27 @@ function Inventory() {
           product.status.toString(),
         ],
       })) || [],
-    action: () => {},
+    action: (id: number) => {
+      navigate(`/auth/inventory/${id}/update`);
+    },
   };
 
   return (
     <div>
       <header className="my-2 mx-6 flex justify-end">
-        <AddButton action={()=>{navigate("/auth/inventory/new")}} title={"Add Product"}/>
+        <AddButton
+          action={() => {
+            navigate("/auth/inventory/new");
+          }}
+          title={"Add Product"}
+        />
       </header>
       <main className="flex justify-center mx-4">
-        <Table headers={tableProps.headers} data={tableProps.data} action={dataAction} />
+        <Table
+          headers={tableProps.headers}
+          data={tableProps.data}
+          action={tableProps.action}
+        />
       </main>
     </div>
   );
