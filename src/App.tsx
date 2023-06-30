@@ -29,8 +29,10 @@ function App() {
         </Route>
         <Route path="auth/*" element={<AuthViews />} errorElement={<NotFoundPage />}>
           <Route index element={<Inventory />} />
-          <Route path="inventory" >
+          <Route path="inventory/*">
             <Route index element={<Inventory />} />
+            <Route path="new" element={<NewProduct />} />
+          </Route>
             <Route path=":id/update" element={<UpdateProduct />} />
           </Route>
           <Route path="providers/*">
