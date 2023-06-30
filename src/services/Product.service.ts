@@ -15,7 +15,7 @@ class ProductsService {
   }
 
   public create(data: CreateProduct) {
-    return http.post(this.BASE_URL, { sku: getRandomId, ...data });
+    return http.post(this.BASE_URL, { sku: getRandomId(), ...data });
   }
 
   public update(sku: number, data: UpdateProduct) {

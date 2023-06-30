@@ -15,7 +15,7 @@ class ProvidersService {
   }
 
   public create(data: CreateProvider) {
-    return http.post(this.BASE_URL, { id: getRandomId, ...data });
+    return http.post(this.BASE_URL, { id: getRandomId(), ...data });
   }
 
   public update(id: number, data: UpdateProvider) {
