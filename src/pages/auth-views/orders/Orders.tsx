@@ -23,7 +23,6 @@ function Orders() {
 
   const tableProp = {
     headers: ["ID", "Proveedor", "Producto SKU", "Cantidad", "Fecha", "Action"],
-    //set data props with orders data but first convert it to Item type with map function and empty array if error
     data:
       orders?.map((order) => ({
         id: order.id,
