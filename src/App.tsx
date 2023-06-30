@@ -16,6 +16,8 @@ import NewShipment from "./pages/auth-views/shipments/pages/NewShipment";
 import NewProvider from "./pages/auth-views/providers/pages/NewProvider";
 import UpdateProduct from "./pages/auth-views/inventory/pages/UpdateProductForm";
 import NewOrders from "./pages/auth-views/orders/pages/NewOrders";
+import NewProduct from "./pages/auth-views/inventory/pages/NewProductForm";
+
 
 function App() {
   return (
@@ -32,7 +34,6 @@ function App() {
           <Route path="inventory/*">
             <Route index element={<Inventory />} />
             <Route path="new" element={<NewProduct />} />
-          </Route>
             <Route path=":id/update" element={<UpdateProduct />} />
           </Route>
           <Route path="providers/*">

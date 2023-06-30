@@ -1,5 +1,6 @@
 export default interface CreateProduct {
-  name: String;
+  name: string;
   stock: number;
   status: number;
+  category: string;
 }

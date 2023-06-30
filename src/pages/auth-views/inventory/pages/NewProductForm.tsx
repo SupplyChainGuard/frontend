@@ -1,20 +1,20 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import CreateProduct from "../../../../models/product/CreateProduct.model";
-import {useNavigate} from "react-router";
+import { useNavigate } from "react-router";
 import Input from "../../../shared/components/Input";
-import useCreateProduct from "../../inventory/hooks/useCreateProducts";
+import useCreateProduct from "../../inventory/hooks/useCreateProduct";
 
 function NewProduct() {
     const navigate = useNavigate();
     const [product, setProduct] = useState<CreateProduct>(
         {} as CreateProduct
     );
-    const {loadingCreateProduct, errorCreateProduct, createProduct} =
+    const { loadingCreateProduct, errorCreateProduct, createProduct } =
         useCreateProduct();
 
     const handleOnSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        await createProduct({...product});
+        await createProduct({ ...product });
         if (!errorCreateProduct) {
             alert("Product created successfully");
             navigate("/auth/inventory");
@@ -74,7 +74,7 @@ function NewProduct() {
                 </div>
                 <div className="flex mt-6">
                     <button className="btn-secondary mr-4 ml-auto" type="submit"
-                            onClick={() => navigate("/auth/inventory")}>
+                        onClick={() => navigate("/auth/inventory")}>
                         Back
                     </button>
                     <button className="btn-primary mr-auto" type="submit">
@@ -85,4 +85,4 @@ function NewProduct() {
         </div>
     );
 }
-    export default NewProduct;
+export default NewProduct;
