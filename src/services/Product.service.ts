@@ -19,11 +19,11 @@ class ProductsService {
   }
 
   public update(sku: number, data: UpdateProduct) {
-    return http.post(`${this.BASE_URL}/${sku}}`, data);
+    return http.put(`${this.BASE_URL}/${sku}`, data);
   }
 
   public delete(sku: number) {
-    return http.post(`${this.BASE_URL}/${sku}}`);
+    return http.delete(`${this.BASE_URL}/${sku}`);
   }
 }
 

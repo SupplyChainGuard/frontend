@@ -13,10 +13,10 @@ function Profile() {
     user: {} as UpdateUser,
   });
 
-  const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleOnSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    updateUser(auxUser);
-    if (!errorUpdateUser) {
+    await updateUser(auxUser);
+    if (!loadingUpdateUser) {
       fetchUser();
     }
   };

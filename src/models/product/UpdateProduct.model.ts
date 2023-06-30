@@ -1,5 +1,6 @@
 export default interface UpdateProduct {
-  name: String;
+  name: string;
   stock: number;
+  category: string;
   status: number;
 }
