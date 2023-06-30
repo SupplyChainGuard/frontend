@@ -11,9 +11,9 @@ interface TableProps {
 
 function Table(props: TableProps) {
   return (
-    <table className="w-full bg-gray-200">
+    <table className="w-full bg-gray-200 mt-4">
       <thead>
-        <tr className="bg-gray-400">
+        <tr className="bg-gray-300">
           {props.headers.map((header) => (
             <th key={header} className="p-2">
               {header}
